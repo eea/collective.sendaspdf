@@ -19,7 +19,7 @@ jQuery(document).ready(function() {
 	    }
 
 	    $.pyproxy_call('jq_send_as_pdf', '#send_as_pdf_popup');
-	};
+	}
 
 	/* Plone 3 is using jQuery 1.2, so we can not use parentUntil which
 	 * was defined in jQuery 1.4.
@@ -38,11 +38,11 @@ jQuery(document).ready(function() {
 		found = (parent[0].nodeName.toLowerCase() == 'form');
 	    }
 	    return parent;
-	}
+	};
 
 	$.fn.redirect = function(url) {
 	    window.location = url;
-	}
+	};
 
 	/* Custom simple lightbox.
 	 */
@@ -77,12 +77,12 @@ jQuery(document).ready(function() {
 		});
 		     
 		element.find('input[name=form_cancelled]').click(close_lightbox);
-		element.find('a.send_as_pdf_close').live('click', close_lightbox);
+		element.on('click', '.send_as_pdf_close', close_lightbox);
 
-		element.find('input[name=form_submitted]').live('click',
+		element.on('click', 'input[name=form_submitted]',
 								submit_send_form);
 	    });
-	}
+	};
 
 	/* Checks all forms elements and sets their
 	 * values in HTML.
@@ -159,7 +159,7 @@ jQuery(document).ready(function() {
 				   config.init();
 			       }
 			   })
-	};
+	}
 
 	function download_pdf(e) {
 	    e.preventDefault();
@@ -168,7 +168,7 @@ jQuery(document).ready(function() {
 	    $.pyproxy_call(
 		base_href.replace('download_as_pdf', 'jq_download_as_pdf'),
 		{page: get_page_source() });
-	};
+	}
 
 	
 	/* Bind the send_as_pdf link with a pyproxy call.

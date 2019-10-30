@@ -3,6 +3,8 @@ Changelog
 
 2.11 (unreleased)
 -----------------
+- Replaced use of live with on since it's removed in jquery 3.4
+  [ichim-david refs #105112]
 - Fix timeout as the Popen kill method was never called
   [avoinea]
 

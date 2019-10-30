@@ -296,5 +296,5 @@ class BaseView(BrowserView):
 
         if not filename in os.listdir(self.tempdir):
             self.errors.append('file_not_found')
-            self.request.response.setStatus(404)
+            self.request.response.set_versioning_status(404)
             return
